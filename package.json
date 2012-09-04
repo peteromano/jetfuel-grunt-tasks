@@ -1,6 +1,6 @@
 {
   "name": "espresso.grunt.tasks",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "title": "Espresso Grunt Tasks",
   "description": "Grunt tasks to be used with Espresso framework ",
   "homepage": "https://github.com/peteromano/espresso.grunt.tasks",
@@ -8,6 +8,10 @@
   "author": {
     "name": "Pete Romano",
     "email": "pete.romano@yahoo.com"
+  },
+  "dependencies": {
+    "closure-compiler": "~0.1.1",
+    "jsdoc-toolkit": "~0.0.1"
   },
   "repository": {
     "type": "git",
