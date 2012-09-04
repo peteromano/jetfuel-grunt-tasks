@@ -1,20 +1,20 @@
 {
-  "name": "espresso-grunt-tasks",
-  "version": "0.1.0",
-  "title": "Espresso Grunt tasks",
+  "name": "espresso.grunt.tasks",
+  "version": "0.1.1",
+  "title": "Espresso Grunt Tasks",
   "description": "Grunt tasks to be used with Espresso framework ",
-  "homepage": "https://github.com/peteromano/espresso-js",
-  "keywords": ["espresso", "espresso-project", "espresso-framework", "espresso-js", "grunt"],
+  "homepage": "https://github.com/peteromano/espresso.grunt.tasks",
+  "keywords": ["espresso", "espresso.project", "espresso.grunt.tasks", "espresso.framework.core", "espresso.vendor.js.espresso", "grunt"],
   "author": {
     "name": "Pete Romano",
     "email": "pete.romano@yahoo.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/peteromano/espresso-grunt-tasks"
+    "url": "https://github.com/peteromano/espresso.grunt.tasks"
   },
   "bugs": {
-    "url": "https://github.com/peteromano/espresso-grunt-tasks/issues"
+    "url": "https://github.com/peteromano/espresso.grunt.tasks/issues"
   },
   "license": "MIT",
   "engines": {
