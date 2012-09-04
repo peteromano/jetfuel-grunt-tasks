@@ -1,7 +1,7 @@
 {
   "name": "espresso.grunt.tasks",
-  "version": "0.1.3",
-  "title": "Espresso Grunt Tasks",
+  "version": "0.1.6",
+  "title": "espresso.grunt.tasks",
   "description": "Grunt tasks to be used with Espresso framework ",
   "homepage": "https://github.com/peteromano/espresso.grunt.tasks",
   "keywords": ["espresso", "espresso.project", "espresso.grunt.tasks", "espresso.framework.core", "espresso.vendor.js.espresso", "grunt"],
@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "closure-compiler": "~0.1.1",
-    "jsdoc-toolkit": "~0.0.1",
-    "js-yaml": "~1.0.2"
+    "jsdoc-toolkit": "~0.0.1"
   },
   "repository": {
     "type": "git",
