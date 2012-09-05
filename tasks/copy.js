@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                   vendor = (grunt.file.readJSON(filepath) || {}).vendor;
                   lib = vendor.lib;
                   for(var file in lib) {
-                      grunt.file.copy(path.dirname(filepath) + '/' + file, path.dirname(grunt.helper('path.to_dest_path', filepath, dest)) + '/' + path.basename(lib[file]));
+                      grunt.file.copy(path.dirname(filepath) + '/' + lib[file], path.dirname(grunt.helper('path.to_dest_path', filepath, dest)) + '/' + path.basename(file));
                   }
               }
             });
