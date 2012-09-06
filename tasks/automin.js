@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
     'use strict';
 
-  grunt.registerMultiTask('godmin', 'Uglify all files.', function() {
+  grunt.registerMultiTask('automin', 'Minify all files.', function() {
         var filepaths = grunt.file.expandFiles(this.file.src),
             banner = grunt.task.directive(this.data.banner) || '',
             dest = this.file.dest,

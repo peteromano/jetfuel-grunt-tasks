@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
     'use strict';
 
-    grunt.registerMultiTask('godcat', 'Concatenate all "package" files.', function() {
+    grunt.registerMultiTask('autocat', 'Concatenate all "package" files.', function() {
         var dest = this.file.dest,
             filters = this.data.filters,
             banner = grunt.task.directive(this.data.banner) || '',
