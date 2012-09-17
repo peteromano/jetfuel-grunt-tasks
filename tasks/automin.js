@@ -2,34 +2,36 @@ module.exports = function(grunt) {
     'use strict';
 
   grunt.registerMultiTask('automin', 'Minify all files.', function() {
-        var filepaths = grunt.file.expandFiles(this.file.src),
+        var src = this.file.src,
             banner = grunt.task.directive(this.data.banner) || '',
             dest = this.file.dest,
-			helper = this.data.helper,
-			args = this.data.args,
-			data = this.data,
-            extension = this.data.extension || '.min.js',
-            replace = this.data.replace || '.js',
-            verbose = this.data.verbose,
+            data = this.data,
+			helper = data.helper,
+			args = data.args,
+            extension = data.extension || '.min.js',
+            replace = data.replace || '.js',
+            verbose = data.verbose,
             task = this,
             errorCount;
 
         try {
 
-            filepaths.forEach(function(filepath) {
-                var newFile;
+            for(var fileglob in src) {
+                grunt.file.expandFiles(fileglob = src[fileglob]).forEach(function(filepath) {
+                    var newFile;
 
-				grunt.helper(helper, grunt.file.read(filepath), args, function(error, output) {
-					grunt.file.write(
-						newFile = grunt.helper('path.to_dest_path', filepath, dest).replace(replace, extension),
-						banner + output
-					);
+                    grunt.helper(helper, grunt.file.read(filepath), args, function(error, output) {
+                        grunt.file.write(
+                            newFile = grunt.helper('path.get_dest_path', fileglob, filepath, dest).replace(replace, extension),
+                            banner + output
+                        );
 
-					errorCount |= task.errorCount;
-	
-					verbose && grunt.log.writeln('File "' + newFile + '" created.');
-				});
-            });
+                        errorCount |= task.errorCount;
+
+                        verbose && grunt.log.writeln('File "' + newFile + '" created.');
+                    });
+                });
+            }
 
         } catch(e) {
 

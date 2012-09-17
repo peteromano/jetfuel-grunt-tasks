@@ -1,6 +1,6 @@
 {
   "name": "espresso.grunt.tasks",
-  "version": "0.1.11",
+  "version": "0.2.0",
   "title": "espresso.grunt.tasks",
   "description": "Grunt tasks to be used with Espresso framework ",
   "homepage": "https://github.com/peteromano/espresso.grunt.tasks",
