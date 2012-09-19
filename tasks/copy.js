@@ -13,14 +13,18 @@ module.exports = function(grunt) {
         try {
             for(var fileglob in src) {
                 grunt.file.expandFiles(fileglob = src[fileglob]).forEach(function(filepath){
-                  if(path.basename(filepath) != ESPRESSO_JSON) grunt.file.copy(filepath, grunt.helper('path.get_dest_path', fileglob, filepath, dest));
+                  var newFile;
+
+                  if(path.basename(filepath) != ESPRESSO_JSON) grunt.file.copy(filepath, newFile = grunt.helper('path.get_dest_path', fileglob, filepath, dest));
                   else {
                       vendor = (grunt.file.readJSON(filepath) || {}).vendor;
                       lib = vendor.lib;
                       for(var file in lib) {
-                          grunt.file.copy(path.dirname(filepath) + '/' + lib[file], path.dirname(filepath.replace(/^([^/]*)/, dest)) + '/' + path.basename(file));
+                          grunt.file.copy(path.dirname(filepath) + '/' + lib[file], newFile = path.dirname(filepath.replace(/^([^/]*)/, dest)) + '/' + path.basename(file));
                       }
                   }
+
+                    grunt.log.writeln('File "' + newFile + '" created.');
                 });
             }
         } catch(e) {
