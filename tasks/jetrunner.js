@@ -1,0 +1,8 @@
+module.exports = function(grunt) {
+    'use strict';
+
+    grunt.registerMultiTask('jetrunner', 'Unit test server.', function() {
+
+    });
+
+};
