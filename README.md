@@ -1,4 +1,4 @@
-espresso-grunt-tasks
-====================
+jetfuel.grunt.tasks
+===================
 
-Grunt tasks to be used with Espresso framework
+Grunt tasks for the JetFuel engine.

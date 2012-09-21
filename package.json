@@ -1,10 +1,10 @@
 {
-  "name": "espresso.grunt.tasks",
-  "version": "0.2.1",
-  "title": "espresso.grunt.tasks",
-  "description": "Grunt tasks to be used with Espresso framework ",
+  "name": "jetfuel.grunt.tasks",
+  "version": "0.3.0",
+  "title": "jetfuel.grunt.tasks",
+  "description": "Grunt tasks for the JetFuel engine.",
   "homepage": "https://github.com/peteromano/espresso.grunt.tasks",
-  "keywords": ["espresso", "espresso-js", "espresso.grunt.tasks", "espresso.framework.core", "espresso.vendor.js.espresso", "grunt"],
+  "keywords": ["jetfuel", "jetfuel.engine.core", "grunt"],
   "author": {
     "name": "Pete Romano",
     "email": "pete.romano@yahoo.com"
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/peteromano/espresso.grunt.tasks"
+    "url": "https://github.com/peteromano/jetfuel.grunt.tasks"
   },
   "bugs": {
-    "url": "https://github.com/peteromano/espresso.grunt.tasks/issues"
+    "url": "https://github.com/peteromano/jetfuel.grunt.tasks/issues"
   },
   "license": "MIT",
   "engines": {
