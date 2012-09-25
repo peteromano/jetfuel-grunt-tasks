@@ -2,22 +2,18 @@ module.exports = function(grunt) {
     'use strict';
 
     grunt.registerMultiTask('jetrunner', 'Unit test server.', function() {
-        var data = require('underscore').extend(grunt.config('meta.jetrunner') || {}, this.data || {});
+        this.requiresConfig('meta.jetrunner');
+
+        var data = grunt.utils._.extend(grunt.config.process('meta.jetrunner') || {}, this.data || {});
 
         require('jetfuel.test.jetrunner')
 
             // Configure and start JetRunner server
-            .server('start', {
-                src: data.src,
-                test: data.test,
-                vendor: data.vendor,
-                runner: data.runner,
-                server: data.server
-            })
+            .server('start', data.server)
 
-            // Enumerate and run tests from filenames in test directory
-            .test([], {
-                async: data.async,
+            // Run unit tests
+            .run(grunt.file.expandFiles(data.test), {
+                runner: data.runner,
                 remote: data.remote,
                 soda: data.soda
             });
