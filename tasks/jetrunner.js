@@ -12,7 +12,7 @@ module.exports = function(grunt) {
             .server('start', data.server)
 
             // Run unit tests
-            .run(grunt.file.expandFiles(data.test), {
+            .run(grunt.file.expandFiles(data.test), data.src, {
                 runner: data.runner,
                 remote: data.remote
             });
