@@ -14,8 +14,7 @@ module.exports = function(grunt) {
             // Run unit tests
             .run(grunt.file.expandFiles(data.test), {
                 runner: data.runner,
-                remote: data.remote,
-                soda: data.soda
+                remote: data.remote
             });
     });
 
