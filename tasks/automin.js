@@ -6,11 +6,11 @@ module.exports = function(grunt) {
             banner = grunt.task.directive(this.data.banner) || '',
             dest = this.file.dest,
             data = this.data,
-			helper = data.helper,
+			helper = data.helper || 'minify.uglify',
 			args = data.args,
-            extension = data.extension || '.min.js',
+            extension = data.extension || '.compressed.js',
             replace = data.replace || '.js',
-            verbose = data.verbose,
+            verbose = true,//data.verbose,
             task = this,
             errorCount;
 

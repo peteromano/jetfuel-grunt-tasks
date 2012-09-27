@@ -3,11 +3,11 @@ module.exports = function(grunt) {
 
     grunt.registerMultiTask('autocat', 'Concatenate all "package" files.', function() {
         var dest = this.file.dest,
-            filters = this.data.filters,
             banner = grunt.task.directive(this.data.banner) || '',
+            filters = this.data.filters || ['*.js'],
             separator = this.data.separator || ';',
             extension = this.data.extension || '.js',
-            verbose = this.data.verbose,
+            verbose = true,//this.data.verbose,
             src = this.file.src;
 
         try {
