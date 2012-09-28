@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                 .server('start', data.server)
 
                 // Run unit tests
-                .run(grunt.file.expandFiles(data.test), data.src, {
+                .run(grunt.file.expandFiles(data.tests), {
                     runner: data.runner,
                     reporter: data.reporter,
                     remote: data.remote
