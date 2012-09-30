@@ -17,18 +17,14 @@ module.exports = function(grunt) {
 
             for(var t in target.tests) tests[process(t)] = process(target.tests[t]);
 
-            require('jetfuel.test.jetrunner')
-
-                // Configure and start JetRunner server
-                .server('start', target.server)
-
-                // Run unit tests
-                .run(tests, {
-                    runner: target.runner,
-                    reporter: target.reporter,
-                    remote: target.remote
-                });
-
+            // Configure and start JetRunner server and run unit tests
+            require('jetfuel.test.jetrunner').run(tests, {
+                server: target.server,
+                runner: target.runner,
+                reporter: target.reporter,
+                remote: target.remote
+            });
+            
         }
     });
 
