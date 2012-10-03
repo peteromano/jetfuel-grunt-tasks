@@ -4,6 +4,8 @@ module.exports = function(grunt) {
     grunt.registerMultiTask('jetrunner', 'Unit test server.', function() {
         var process = grunt.template.process,
             data = this.data,
+            done = this.async(),
+            processed = 0,
             tests, target;
 
         for(var test in data) {
@@ -23,8 +25,9 @@ module.exports = function(grunt) {
                 runner: target.runner,
                 reporter: target.reporter,
                 remote: target.remote
+            }, function(code) {
+                done(code === 0);
             });
-            
         }
     });
 
