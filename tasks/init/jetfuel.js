@@ -21,15 +21,15 @@ exports.warnOn = '*';
 // The actual init template.
 exports.template = function(grunt, init, done) {
     var child = require('child_process'),
-        spawn = child.spawn;
+        exec = child.exec;
 
-    spawn('npm', ['install', NAME, '--force'], { stdio: 'inherit' })
+    child.spawn('npm', ['install', NAME, '--force'], { stdio: 'inherit' })
         .on('exit', function(code) {
             require('fs').renameSync(NAME, TMP);
 
-            child.exec('cp -rf ' + TMP + '/* .', { stdio: 'inherit' })
+            exec('cp -rf ' + TMP + '/* .', { stdio: 'inherit' })
                 .on('exit', function(code) {
-                    child.exec('rm -rf ' + TMP, { stdio: 'inherit' })
+                    exec('rm -rf ' + TMP, { stdio: 'inherit' })
                         .on('exit', function(code) {
                             done();
                         });

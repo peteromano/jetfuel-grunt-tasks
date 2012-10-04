@@ -1,7 +1,8 @@
 module.exports = function(grunt) {
     'use strict';
 
-    var GRUNT_FILE = 'grunt.js';
+    var GRUNT_FILE = 'grunt.js',
+        JETFUEL_FILE = 'jetfuel';
 
     /**
      * Clean directories.
@@ -14,7 +15,7 @@ module.exports = function(grunt) {
     grunt.registerHelper('fs.rmdir', function(dirpath) {
         var fs = require('fs');
 
-        if(!grunt.file.findup(dirpath, GRUNT_FILE)) throw Error('Directory "' + dirpath + '" is outside the grunt project.');
+        if(!grunt.file.findup(dirpath, GRUNT_FILE) && !grunt.file.findup(dirpath, JETFUEL_FILE)) throw Error('Directory "' + dirpath + '" is outside the grunt project.');
         else {
             grunt.file.expandFiles(dirpath+'*').forEach(function(filename) {
                 fs.unlinkSync(filename);

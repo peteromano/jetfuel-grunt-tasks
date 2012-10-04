@@ -1,6 +1,6 @@
 {
   "name": "jetfuel.grunt.tasks",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "title": "jetfuel.grunt.tasks",
   "description": "Grunt tasks for the JetFuel engine.",
   "homepage": "https://github.com/peteromano/espresso.grunt.tasks",
@@ -12,7 +12,8 @@
   "dependencies": {
     "jetfuel.test.jetrunner": "~0.1.10",
     "closure-compiler": "~0.1.1",
-    "jsdoc-toolkit": "~0.0.1"
+    "jsdoc-toolkit": "~0.0.1",
+    "fs-extra": "~0.2.1"
   },
   "repository": {
     "type": "git",
