@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                 grunt.file.expandFiles(fileglob = src[fileglob]).forEach(function(filepath){
                   var newFile;
 
-                  if(path.basename(filepath) != JETFUEL_JSON) grunt.file.copy(filepath, newFile = grunt.helper('path.get_dest_path', fileglob, filepath, dest));
+                  if(path.basename(filepath) != JETFUEL_JSON) grunt.file.copy(filepath, newFile = grunt.helper('jetfuel.get_dest_path', fileglob, filepath, dest));
                   else {
                       vendor = (grunt.file.readJSON(filepath) || {}).vendor;
                       lib = vendor.lib;

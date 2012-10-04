@@ -6,7 +6,7 @@ module.exports = function(grunt) {
             banner = grunt.task.directive(this.data.banner) || '',
             dest = this.file.dest,
             data = this.data,
-			helper = data.helper || 'minify.uglify',
+			helper = data.helper || 'jetfuel.uglify',
 			args = data.args,
             extension = data.extension || '.compressed.js',
             replace = data.replace || '.js',
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 
                     grunt.helper(helper, grunt.file.read(filepath), args, function(error, output) {
                         grunt.file.write(
-                            newFile = grunt.helper('path.get_dest_path', fileglob, filepath, dest).replace(replace, extension),
+                            newFile = grunt.helper('jetfuel.get_dest_path', fileglob, filepath, dest).replace(replace, extension),
                             banner + output
                         );
 

@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         try {
 
             grunt.file.expandDirs(this.file.src).reverse().forEach(function(dirpath){
-                grunt.helper('fs.rmdir', dirpath);
+                grunt.helper('jetfuel.rmdir', dirpath);
             });
 
         } catch(e) {

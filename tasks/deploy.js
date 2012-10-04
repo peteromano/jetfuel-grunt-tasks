@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         try {
 
             this.file.src.forEach(function(filepath){
-                grunt.helper('fs.rsync', filepath, dest, args);
+                grunt.helper('jetfuel.rsync', filepath, dest, args);
             });
 
         } catch(e) {

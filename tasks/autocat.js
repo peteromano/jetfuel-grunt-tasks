@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                     var newFile;
 
                     grunt.file.write(
-                        newFile = grunt.helper('path.get_dest_path', fileglob, dirpath, dest).replace(/\/$/, extension),
+                        newFile = grunt.helper('jetfuel.get_dest_path', fileglob, dirpath, dest).replace(/\/$/, extension),
                         banner + grunt.helper('concat', grunt.file.expandFiles(
                             filters.map(function(filter) { return dirpath+filter; })
                         ), { separator: separator })

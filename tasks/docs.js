@@ -6,6 +6,7 @@ module.exports = function(grunt) {
 
     grunt.registerMultiTask('docs', 'JSDocs for src, outputted to dest.', function() {
     	var path = require('path'),
+            done = this.async(),
             jsdoc = this.data.jsdoc,
     		src = path.resolve(this.file.src),
     		dest = path.resolve(this.file.dest),
@@ -23,10 +24,12 @@ module.exports = function(grunt) {
                 jsdoc.exclude ? '-E=' + jsdoc.exclude : ''
             ].join(' ');
         try {
-            grunt.helper('process.pushd', p);
-            grunt.log.writeln('exec: ' + cli);
-            require('child_process').exec(cli);
-            grunt.helper('process.popd');
+            require('child_process').exec(cli, { stdio: 'inherit' })
+                .on('exit', function(code) {
+                    grunt.log.writeln('exec: ' + cli);
+                    done(code == 0)
+                });
+
         } catch(e) {
             grunt.log.writeln(e);
             return false;
