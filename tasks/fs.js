@@ -2,7 +2,7 @@ module.exports = function(grunt) {
     'use strict';
 
     var GRUNT_FILE = 'grunt.js',
-        JETFUEL_FILE = 'jetfuel';
+        JETFUEL_FILE = 'jetfuel.json';
 
     /**
      * Clean directories.
