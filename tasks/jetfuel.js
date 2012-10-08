@@ -2,7 +2,6 @@ module.exports = function(grunt) {
     'use strict';
 
     var GRUNT_FILE      = 'grunt.js',
-        JETFUEL_FILE    = 'jetfuel.json',
         STRIP_GLOB      = /(?:(\w*)(?:\/\*)+.*)/;
 
     var d = [];
@@ -16,7 +15,7 @@ module.exports = function(grunt) {
      *      an ideal security precaution
     */
     grunt.registerHelper('jetfuel.rmdir', function(dirpath) {
-        if(!grunt.file.findup(dirpath, GRUNT_FILE) && !grunt.file.findup(dirpath, JETFUEL_FILE)) throw Error('Directory "' + dirpath + '" is outside the grunt project.');
+        if(!grunt.file.findup(dirpath, GRUNT_FILE) && !grunt.file.findup(dirpath, process.jetfuel && process.jetfuel.FILE)) throw Error('Directory "' + dirpath + '" is outside the grunt project.');
         else {
             require('fs-extra').removeSync(dirpath);
             grunt.log.writeln('Directory "' + dirpath + '" deleted.');
