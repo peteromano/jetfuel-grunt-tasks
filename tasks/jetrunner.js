@@ -23,7 +23,7 @@ module.exports = function(grunt) {
             delete target.test;
 
             // Configure and start JetRunner server and run unit tests
-            require('jetfuel.test.jetrunner').run(tests, target, function(code) {
+            require('jetrunner').run(tests, target, function(code) {
                 done(code === 0);
             });
         }

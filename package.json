@@ -1,26 +1,26 @@
 {
-  "name": "jetfuel.grunt.tasks",
-  "version": "0.3.17",
-  "title": "jetfuel.grunt.tasks",
+  "name": "jetfuel-grunt-tasks",
+  "version": "1.0.0",
+  "title": "JetFuel Grunt Tasks",
   "description": "Grunt tasks for the JetFuel engine.",
-  "homepage": "https://github.com/peteromano/espresso.grunt.tasks",
-  "keywords": ["jetfuel", "jetfuel.engine.core", "grunt"],
+  "homepage": "https://github.com/peteromano/jetfuel-grunt-tasks",
+  "keywords": ["jetfuel", "jetrunner", "jetfuel-grunt-tasks", "grunt"],
   "author": {
     "name": "Pete Romano",
     "email": "pete.romano@yahoo.com"
   },
   "dependencies": {
-    "jetfuel.test.jetrunner": "~0.1.11",
+    "jetrunner": "~1.0.0pre-1",
     "closure-compiler": "~0.1.1",
     "jsdoc-toolkit": "~0.0.1",
     "fs-extra": "~0.2.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/peteromano/jetfuel.grunt.tasks"
+    "url": "https://github.com/peteromano/jetfuel-grunt-tasks"
   },
   "bugs": {
-    "url": "https://github.com/peteromano/jetfuel.grunt.tasks/issues"
+    "url": "https://github.com/peteromano/jetfuel-grunt-tasks/issues"
   },
   "license": "MIT",
   "engines": {
