@@ -5,7 +5,6 @@ module.exports = function(grunt) {
         var process = grunt.template.process,
             data = this.data,
             done = this.async(),
-            processed = 0,
             tests, target;
 
         for(var test in data) {
@@ -20,12 +19,12 @@ module.exports = function(grunt) {
             for(var t in target.tests) tests[process(t)] = process(target.tests[t]);
 
             target.tests = undefined;
-            delete target.test;
+            delete target.tests;
 
-            // Configure and start JetRunner server and run unit tests
-            require('jetrunner').run(tests, target, function(code) {
-                done(code === 0);
-            });
+            require('jetrunner')
+                .on('phantom:stdout', grunt.log.write.bind(grunt.log))
+                .on('phantom:stderr', grunt.log.error.bind(grunt.log))
+                .run(tests, target, function(code) { done(code === 0); });
         }
     });
 

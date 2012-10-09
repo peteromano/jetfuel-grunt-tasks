@@ -17,7 +17,8 @@ module.exports = function( grunt ) {
             debugsass = this.data.debugsass,
             relativeassets = this.data.relativeassets,
             config = this.data.config,
-            libRequire = this.data.require;
+            libRequire = this.data.require,
+            compass;
 
         if ( this.data.src !== undefined ) {
             src = grunt.template.process(this.data.src);
@@ -71,24 +72,16 @@ module.exports = function( grunt ) {
             command += ' --config="' + config + '"';
         }
 
-        function puts( error, stdout, stderr ) {
-
-            grunt.log.write( stdout );
-            /* grunt.log.error( stderr );
-             * compass sends falsy error message to stderr... real sass/compass errors come in through the "error" variable.
-             */
-
-            if ( error !== null ) {
-                grunt.log.error( error );
-                done(false);
-            }
-            else {
-                done(true);
-            }
-        }
-
         grunt.log.writeln('exec: ' + command);
 
-        exec( command, puts );
+        compass = exec( command, { stdio: 'pipe' }) .on('exit', function(code) { done(code === 0); });
+
+        compass.stdout.on('data', function(data) {
+            grunt.log.write(data)
+        });
+
+        compass.stderr.on('data', function(data) {
+            grunt.log.error(data)
+        });
     });
 };
