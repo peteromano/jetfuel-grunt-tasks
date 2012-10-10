@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 
         } catch(e) {
 
-            grunt.log.writeln(e);
+            grunt.log.error(e);
             return false;
 
         }
