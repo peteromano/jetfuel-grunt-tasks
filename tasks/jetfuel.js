@@ -22,15 +22,15 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerHelper('jetfuel.rsync', function(src, dest, args) {
-        var done = grunt.task.current.async(),
-            cmd = ['rsync', args || '', src, dest].join(' ');
+    grunt.registerHelper('jetfuel.rsync', function(src, dest, args, done) {
+        var cmd = ['rsync', args || '', src, dest].join(' '),
+            rsync = require('child_process').exec(cmd)
+                .on('exit', function(code) {
+                    done && done(code == 0);
+                });
 
-        require('child_process').exec(cmd, { stdio: 'inherit' })
-            .on('exit', function(code) {
-                grunt.log.writeln('exec: ' + cmd);
-                done(code == 0);
-            });
+            rsync.stdout.on('data', grunt.log.write.bind(grunt.log));
+            rsync.stderr.on('data', grunt.log.error.bind(grunt.log));
     });
 
     grunt.registerHelper('jetfuel.closure', function(input, args, callback) {
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
         /*options = options || {};
         args = args || {};
 
-        var	cli = ['java', '-jar', options.compilerPath || 'node_modules/closure-compiler/lib/vendor/compiler.jar'];
+        var cli = ['java', '-jar', options.compilerPath || 'node_modules/closure-compiler/lib/vendor/compiler.jar'];
 
         Object.keys(args).forEach(function(key) {
             cli.push("--" + key + ' ' + args[key]);

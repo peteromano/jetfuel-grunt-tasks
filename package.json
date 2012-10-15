@@ -1,6 +1,6 @@
 {
   "name": "jetfuel-grunt-tasks",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "title": "JetFuel Grunt Tasks",
   "description": "Grunt tasks for the JetFuel engine.",
   "homepage": "https://github.com/peteromano/jetfuel-grunt-tasks",

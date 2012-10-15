@@ -71,10 +71,8 @@ module.exports = function( grunt ) {
         if ( config !== undefined ) {
             command += ' --config="' + config + '"';
         }
-
-        grunt.log.writeln('exec: ' + command);
         
-        compass = exec( command, { stdio: 'pipe' }) .on('exit', function(code) { done(code === 0); });
+        compass = exec(command).on('exit', function(code) { done(code === 0); });
         compass.stdout.on('data', grunt.log.write.bind(grunt.log));
         compass.stderr.on('data', grunt.log.error.bind(grunt.log));
     });

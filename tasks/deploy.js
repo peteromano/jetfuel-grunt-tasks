@@ -4,20 +4,12 @@ module.exports = function(grunt) {
     grunt.registerMultiTask('deploy', 'Deploy dest directory to deploy directory.', function() {
         var dest = this.file.dest,
             data = grunt.utils._.extend(grunt.config.process('meta.deploy') || {}, this.data || {}),
-            args = data.rsync.args;
+            args = data.rsync.args,
+            done = this.async();
 
-        try {
-
-            this.file.src.forEach(function(filepath){
-                grunt.helper('jetfuel.rsync', filepath, dest, args);
-            });
-
-        } catch(e) {
-
-            grunt.log.error(e);
-            return false;
-
-        }
+        this.file.src.forEach(function(filepath){
+            grunt.helper('jetfuel.rsync', filepath, dest, args, done);
+        });
     });
 
 };
