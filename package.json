@@ -1,6 +1,6 @@
 {
   "name": "jetfuel-grunt-tasks",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "JetFuel Grunt Tasks",
   "description": "Grunt tasks for the JetFuel engine.",
   "homepage": "https://github.com/peteromano/jetfuel-grunt-tasks",
@@ -10,7 +10,7 @@
     "email": "pete.romano@yahoo.com"
   },
   "dependencies": {
-    "jetrunner": "~1.0.0pre2",
+    "jetrunner": "~1.0.0pre3",
     "closure-compiler": "~0.1.1",
     "jsdoc-toolkit": "~0.0.1",
     "fs-extra": "~0.2.1",
