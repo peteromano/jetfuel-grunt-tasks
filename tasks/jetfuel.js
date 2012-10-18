@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerHelper('jetfuel.rsync', function(src, dest, args, done) {
-        var cmd = ['rsync', args || '', src, dest].join(' '),
+        var cmd = ['rsync', args || grunt.config('meta.rsync.args'), src, dest].join(' '),
             rsync = require('child_process').exec(cmd)
                 .on('exit', function(code) {
                     done && done(code == 0);

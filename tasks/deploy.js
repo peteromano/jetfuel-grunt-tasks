@@ -3,8 +3,7 @@ module.exports = function(grunt) {
 
     grunt.registerMultiTask('deploy', 'Deploy dest directory to deploy directory.', function() {
         var dest = this.file.dest,
-            data = grunt.utils._.extend(grunt.config.process('meta.deploy') || {}, this.data || {}),
-            args = data.rsync.args,
+            args = this.data.rsync && this.data.rsync.args,
             done = this.async();
 
         this.file.src.forEach(function(filepath){
