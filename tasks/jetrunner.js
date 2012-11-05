@@ -19,7 +19,7 @@ module.exports = function(grunt) {
             for(var t in target.tests) tests[process(t)] = process(target.tests[t]);
 
             target.stdio = target.stdio || 'pipe';
-
+            target.reporter = target.reporter || 'list';
             target.tests = undefined;
             delete target.tests;
 
